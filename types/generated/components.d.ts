@@ -1,18 +1,116 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface ProductProducts extends Struct.ComponentSchema {
-  collectionName: 'components_product_products';
+export interface ProductBrands extends Struct.ComponentSchema {
+  collectionName: 'components_product_brands';
   info: {
-    description: '';
-    displayName: 'products';
-    icon: 'bulletList';
+    displayName: 'Brands';
+    icon: 'archive';
   };
   attributes: {
-    brandName: Schema.Attribute.String;
-    composition: Schema.Attribute.RichText;
-    division: Schema.Attribute.String;
-    genericName: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Brand: Schema.Attribute.String;
+    Composition: Schema.Attribute.Component<'product.composition', false>;
+    Description: Schema.Attribute.String;
+  };
+}
+
+export interface ProductComposition extends Struct.ComponentSchema {
+  collectionName: 'components_product_compositions';
+  info: {
+    displayName: 'Composition';
+    icon: 'crown';
+  };
+  attributes: {
+    composition1: Schema.Attribute.String;
+    composition2: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductContradiction extends Struct.ComponentSchema {
+  collectionName: 'components_product_contradictions';
+  info: {
+    displayName: 'contradiction';
+    icon: 'attachment';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductDose extends Struct.ComponentSchema {
+  collectionName: 'components_product_doses';
+  info: {
+    displayName: 'Dose';
+    icon: 'bell';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductIndications extends Struct.ComponentSchema {
+  collectionName: 'components_product_indications';
+  info: {
+    displayName: 'Indications';
+    icon: 'arrowDown';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductMechanismOfAction extends Struct.ComponentSchema {
+  collectionName: 'components_product_mechanism_of_actions';
+  info: {
+    displayName: 'Mechanism of Action';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductPatentInformation extends Struct.ComponentSchema {
+  collectionName: 'components_product_patent_informations';
+  info: {
+    displayName: 'Patent Information';
+    icon: 'alien';
+  };
+  attributes: {
+    administration: Schema.Attribute.Text;
+    children: Schema.Attribute.Text;
+    food_interaction: Schema.Attribute.String;
+    missed_dose: Schema.Attribute.String;
+    nursing_mothers: Schema.Attribute.String;
+    patient_information: Schema.Attribute.Text;
+    pregnancy: Schema.Attribute.String;
+    storage: Schema.Attribute.String;
+  };
+}
+
+export interface ProductPresentation extends Struct.ComponentSchema {
+  collectionName: 'components_product_presentations';
+  info: {
+    displayName: 'Presentation';
+    icon: 'chartPie';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ProductStorage extends Struct.ComponentSchema {
+  collectionName: 'components_product_storages';
+  info: {
+    displayName: 'Storage';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -81,7 +179,15 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'product.products': ProductProducts;
+      'product.brands': ProductBrands;
+      'product.composition': ProductComposition;
+      'product.contradiction': ProductContradiction;
+      'product.dose': ProductDose;
+      'product.indications': ProductIndications;
+      'product.mechanism-of-action': ProductMechanismOfAction;
+      'product.patent-information': ProductPatentInformation;
+      'product.presentation': ProductPresentation;
+      'product.storage': ProductStorage;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

@@ -398,6 +398,72 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
+  collectionName: 'careers';
+  info: {
+    description: '';
+    displayName: 'Career';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    full_name: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career.career'
+    > &
+      Schema.Attribute.Private;
+    phone_number: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    resume: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContactContact extends Struct.CollectionTypeSchema {
+  collectionName: 'contacts';
+  info: {
+    displayName: 'Contact';
+    pluralName: 'contacts';
+    singularName: 'contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact.contact'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -430,31 +496,48 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiProductCategoryProductCategory
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'product_categories';
+export interface ApiProductProduct extends Struct.CollectionTypeSchema {
+  collectionName: 'products';
   info: {
     description: '';
-    displayName: 'product-categories';
-    pluralName: 'product-categories';
-    singularName: 'product-category';
+    displayName: 'product';
+    pluralName: 'products';
+    singularName: 'product';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    brand_name: Schema.Attribute.String;
+    brands: Schema.Attribute.Component<'product.brands', true>;
+    contradictions: Schema.Attribute.Component<'product.contradiction', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    division: Schema.Attribute.String;
+    dose: Schema.Attribute.Component<'product.dose', true>;
+    generic_name: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    indications: Schema.Attribute.Component<'product.indications', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::product-category.product-category'
+      'api::product.product'
     > &
       Schema.Attribute.Private;
-    Products: Schema.Attribute.Component<'product.products', true>;
+    mechanism_of_action: Schema.Attribute.Component<
+      'product.mechanism-of-action',
+      true
+    >;
+    patent_information: Schema.Attribute.Component<
+      'product.patent-information',
+      false
+    >;
+    pregnancy: Schema.Attribute.String;
+    presentation: Schema.Attribute.Component<'product.presentation', true>;
     publishedAt: Schema.Attribute.DateTime;
-    TherapeuticCategory: Schema.Attribute.String;
+    storage: Schema.Attribute.Component<'product.storage', true>;
+    therapeutic_category: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -971,8 +1054,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::career.career': ApiCareerCareer;
+      'api::contact.contact': ApiContactContact;
       'api::global.global': ApiGlobalGlobal;
-      'api::product-category.product-category': ApiProductCategoryProductCategory;
+      'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

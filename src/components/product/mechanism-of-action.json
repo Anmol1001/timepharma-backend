@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_product_mechanism_of_actions",
+  "info": {
+    "displayName": "Mechanism of Action"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

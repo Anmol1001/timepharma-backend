@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_product_doses",
+  "info": {
+    "displayName": "Dose",
+    "icon": "bell"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

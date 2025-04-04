@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_product_brands",
+  "info": {
+    "displayName": "Brands",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "Brand": {
+      "type": "string"
+    },
+    "Composition": {
+      "displayName": "Composition",
+      "type": "component",
+      "repeatable": false,
+      "component": "product.composition"
+    },
+    "Description": {
+      "type": "string"
+    }
+  }
+}

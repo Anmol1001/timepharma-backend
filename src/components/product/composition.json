@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_product_compositions",
+  "info": {
+    "displayName": "Composition",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "composition1": {
+      "type": "string"
+    },
+    "composition2": {
+      "type": "string"
+    }
+  }
+}

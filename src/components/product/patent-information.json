@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_product_patent_informations",
+  "info": {
+    "displayName": "Patent Information",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "patient_information": {
+      "type": "text"
+    },
+    "administration": {
+      "type": "text"
+    },
+    "pregnancy": {
+      "type": "string"
+    },
+    "storage": {
+      "type": "string"
+    },
+    "missed_dose": {
+      "type": "string"
+    },
+    "food_interaction": {
+      "type": "string"
+    },
+    "nursing_mothers": {
+      "type": "string"
+    },
+    "children": {
+      "type": "text"
+    }
+  }
+}

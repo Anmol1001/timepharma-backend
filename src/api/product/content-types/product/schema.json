@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brand_name": {
+      "type": "string"
+    },
+    "generic_name": {
+      "type": "string"
+    },
+    "therapeutic_category": {
+      "type": "string"
+    },
+    "division": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "brands": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.brands"
+    },
+    "dose": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.dose"
+    },
+    "presentation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.presentation"
+    },
+    "patent_information": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.patent-information"
+    },
+    "indications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.indications"
+    },
+    "mechanism_of_action": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.mechanism-of-action"
+    },
+    "storage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.storage"
+    },
+    "contradictions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.contradiction"
+    },
+    "pregnancy": {
+      "type": "string"
+    }
+  }
+}

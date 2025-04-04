@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_product_contradictions",
+  "info": {
+    "displayName": "contradiction",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

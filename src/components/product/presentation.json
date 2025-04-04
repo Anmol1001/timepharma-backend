@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_product_presentations",
+  "info": {
+    "displayName": "Presentation",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
